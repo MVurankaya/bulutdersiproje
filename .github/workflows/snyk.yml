@@ -16,7 +16,10 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '20' 
+          node-version: '20'
+
+      - name: Move dependency files
+        run: mv .github/dependency_files/* .
 
       - name: Install dependencies
         working-directory: /home/runner/work/bulutdersiproje/bulutdersiproje/
