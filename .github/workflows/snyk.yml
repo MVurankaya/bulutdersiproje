@@ -19,6 +19,7 @@ jobs:
           node-version: '16'
 
       - name: Install dependencies
+        working-directory: /home/runner/work/bulutdersiproje/bulutdersiproje/
         run: npm install
 
       - name: Run Snyk to check for vulnerabilities
