@@ -16,13 +16,12 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '16' 
+          node-version: '16' # Kullandığınız Node.js sürümünü buraya girin.
 
-      - name: Install Snyk CLI
-        run: npm install -g snyk
-
-      - name: Snyk Authentication
-        run: snyk auth ${{ secrets.SNYK_TOKEN }}
+      - name: Install dependencies
+        run: npm install
 
       - name: Run Snyk to check for vulnerabilities
-        run: snyk test --all-projects
+        run: npx snyk test
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
